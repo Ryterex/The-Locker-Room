@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Locker Room</title>
+</head>
+<body>
+	<div class = "navi">
+		<nav>
+			<a href="home_lock.html">Home</a>
+			<a href="feed_link">Feed</a>
+			<a href="profile.html">Profile</a>
+			<a href="login/signup_link">Login/Sign Up</a>
+		</nav>
+	</div>
+	<div class = "user_info">
+		<form>
+			<h1 class="email"></h1><br> <!--The user profile email-->
+			<h1 class="gender"></h1><br> <!--The user's gender input-->
+			<button type="button" onclick="next()">Change password</button>
+		</form>
+	</div>
+<script>
+function next() {
+	window.location.href = "change_password.html";
+}
+</script>
+</body>
+</html>
