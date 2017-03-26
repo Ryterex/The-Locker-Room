@@ -7,17 +7,18 @@
 	background-color: #ebdedb;
 	text-align: center;
 	width: 50%;
-	position: center;
+	margin: auto;
 }
 
 .button{
 	display: block;
 	margin: auto;
-
+	padding: 5px;
+	width: 10%;
 }
 
 .butt{
-	position: relative;
+	margin: auto;
 }
 
 .user_info{
