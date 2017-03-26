@@ -3,7 +3,36 @@
 <head>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title>Locker Room</title>
+
+	<script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+
+
+	<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-database.js"></script>
+
+
+	
+
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyAx_rQPhmne93y4ifq5Jl9DOgM-f-xL1wE",
+	    authDomain: "lockerroom-e2078.firebaseapp.com",
+	    databaseURL: "https://lockerroom-e2078.firebaseio.com",
+	    storageBucket: "lockerroom-e2078.appspot.com",
+	    messagingSenderId: "426768137801"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+
+	<script src="CheckAuthState.js"></script>
+	<!--<script> CheckAuthState(); </script>-->
+	<script src="ButtonListeners.js"></script>
+
 <style type="text/css">
+
+
 
 .navi {
 	padding: 10px;
@@ -20,7 +49,7 @@
 .home {
 	display: inline-block;
 	font-family: Arial;
-	color; red;
+	color: red;
 	padding-bottom: 5px;
 	padding-left: 40px;
 	padding-right: 40px;
@@ -31,7 +60,7 @@
 	padding-left: 20px;
 	display: inline-block;
 	font-family: Arial;
-	font-color; red;
+	font-color: red;
 }
 
 .profile {
@@ -39,17 +68,18 @@
 	padding-left: 30px;
 	display: inline-block;
 	font-family: Arial;
-	font-color; red;
+	font-color: red;
 }
 
-.signin {
+.butt {
 	/*padding-right: 20px;
 	padding-left: 20px;*/
 	display: inline-block;
 	float: right;
 	font-family: Arial;
-	font-color; red;
-	padding: 16px;
+	font-color: red;
+	padding-bottom: 20px;
+	/*padding: 16px;*/
 }
 /*a {
 	color: red;
@@ -77,10 +107,6 @@ a:link {
 	font-size: 40px;
 	color: red;
 	text-align: center;
-}
-
-#logInRegisterButton{
-	display:none;
 }
 
 .outside {
@@ -165,10 +191,11 @@ h5 {
 			<div class="home"><a href = "home_lock.html" class = "homes"><i class="fa fa-home" aria-hidden="true"></i></a></div>
 			<div class="feed"><a href = "search_profile.html" class = "feeds"><i class="fa fa-globe" aria-hidden="true"></i></a></div>
 			<div class="profile"><a href = "profile.html" class = "profiles"><i class="fa fa-user" aria-hidden="true"></i></a></div>
-				<button id="logInRegisterButton" onClick="onLogInRegister">Login/Sign Up</button>
-				<button id="logOutButton" onClick="onLogOut">Log out</button>
-			</div>
 		</nav>
+		<div class="butt">
+			<button id="logInRegisterButton" display="block" onClick="onLogInRegister()">Login/Sign Up</button>
+			<button id="logOutButton" display="none" onClick="onLogOut()">Log out</button>
+		</div>
 	</div>
 	<div class = "outside">
 		<div class = "pop">Popular Feed</div>

@@ -68,15 +68,6 @@
 	font-color; red;
 }
 
-.signin {
-	/*padding-right: 20px;
-	padding-left: 20px;*/
-	display: inline-block;
-	float: right;
-	font-family: Arial;
-	font-color; red;
-	padding: 16px;
-}
 /*a {
 	color: red;
 	font-size: 40px;
@@ -170,8 +161,11 @@ a:link {
 				<div class="home"><a href = "home_lock.html" class = "homes"><i class="fa fa-home" aria-hidden="true"></i></a></div>
 				<div class="feed"><a href = "search_profile.html" class = "feeds"><i class="fa fa-globe" aria-hidden="true"></i></a></div>
 				<div class="profile"><a href = "profile.html" class = "profiles"><i class="fa fa-user" aria-hidden="true"></i></a></div>
-				<div class="signin"><a href = "signin_lock.html" class = "signins">Login/Sign Up</a></div>
 			</nav>
+		<div class="butt">
+			<button id="logInRegisterButton" display="block" onClick="onLogInRegister()">Login/Sign Up</button>
+			<button id="logOutButton" display="none" onClick="onLogOut()">Log out</button>
+		</div>
 		</div>
 		<div class = "outside">
 			<div class = "register">
@@ -187,12 +181,13 @@ a:link {
 					<input type = "password" name = "verifyPassword" id ="varifyPassword">
 					<br><br>
 
+				</form>
+
+
 					<button id="registerButton"
 							onClick="onSubmitRegister()">
 							Register
 					</button>
-
-				</form>
 			</div>
 			<div class = "login">
 				<form>
@@ -204,12 +199,12 @@ a:link {
 					<input type = "password" name = "password">
 					<br><br>
 
+				</form>
+
 					<button id="logInButton"
 							onClick="onSubmitLogIn()">
 							Log In
 					</button>
-
-				</form>
 			</div>	
 		</div>
 	</div>	
