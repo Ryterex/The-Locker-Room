@@ -3,30 +3,6 @@
 <head>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title>Locker Room</title>
-
-	<script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
-
-
-	<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-app.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-auth.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-database.js"></script>
-
-
-	
-
-	<script>
-	  // Initialize Firebase
-	  var config = {
-	    apiKey: "AIzaSyAx_rQPhmne93y4ifq5Jl9DOgM-f-xL1wE",
-	    authDomain: "lockerroom-e2078.firebaseapp.com",
-	    databaseURL: "https://lockerroom-e2078.firebaseio.com",
-	    storageBucket: "lockerroom-e2078.appspot.com",
-	    messagingSenderId: "426768137801"
-	  };
-	  firebase.initializeApp(config);
-	</script>
-
-
 	<script src="ButtonListeners.js"></script>
 	<script src="CheckAuthState.js"></script>
 	<style type="text/css">
@@ -35,7 +11,7 @@
 	padding: 10px;
 	border-width: 15px;
 	border-radius: 10px;
-	border: solid red 5px;
+	border: solid red;
 	width: 1024px;
 	margin: auto;
 	background-color: #ABABAB; 
@@ -111,60 +87,13 @@ a:link {
 }
 
 .outside {
-	margin: auto;
-	border: solid red;
-	width: 1036px;
-	margin-top: 50px;
-	height: 512px;
-	background-color: #ABABAB;
-	border-radius: 10px;
-	border: solid red 5px;
-}
-
-.register {
-	margin-left: 225px;
-	margin-top: 100px;
-	display: inline-block;
-	border: solid red;
-	padding: 10px;
-	font-family: Arial;
-	color:red;
-	background-color: #ABABAB;
-	border-radius: 10px;
-}
-
-.login {
-	margin-left: 200px;
-	margin-top: 100px;
-	display: inline-block;
-	border: solid red;
-	padding: 10px;
-	font-family: Arial;
-	color:red;
-	background-color: #ABABAB;
-	border-radius: 10px;
-}
-
-.reg {
-	font-family: Impact;
-	color: red;
-	font-size: 25px;
-	text-align: center;
-	padding-bottom: 10px;
-}
-
-.log {
-	font-family: Impact;
-	color: red;
-	font-size: 25px;
-	text-align: center;
-	padding-bottom: 10px;
+	
 }
 
 </style>
 </head>
 <body>
-	<div class = "back">
+	<div>
 		<div class = "navi">
 			<nav>
 				<div class="home"><a href = "home_lock.html" class = "homes"><i class="fa fa-home" aria-hidden="true"></i></a></div>
@@ -176,7 +105,6 @@ a:link {
 		<div class = "outside">
 			<div class = "register">
 				<form>
-					<div class = "reg">Register! <br></div>
 					Email: <br>
 					<input type = "text" name = "emailR" id = "emailR">
 					<br>
@@ -196,7 +124,6 @@ a:link {
 			</div>
 			<div class = "login">
 				<form>
-					<div class = "log">Log In! <br></div>
 					Email: <br>
 					<input type = "text" name = "email">
 					<br>
@@ -214,5 +141,22 @@ a:link {
 		</div>
 	</div>	
 
+	<script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyAx_rQPhmne93y4ifq5Jl9DOgM-f-xL1wE",
+	    authDomain: "lockerroom-e2078.firebaseapp.com",
+	    databaseURL: "https://lockerroom-e2078.firebaseio.com",
+	    storageBucket: "lockerroom-e2078.appspot.com",
+	    messagingSenderId: "426768137801"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+
+	<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-database.js"></script>
 </body>
 </html>

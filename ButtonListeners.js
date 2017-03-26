@@ -1,24 +1,39 @@
 var registerButton = document.getElementById("registerButton");
 var logInButton = document.getElementById("logInButton");
+//var defaultApp = firebase.initializeApp(defaultAppConfig);
+//var defaultStorage = defaultApp.storage();
+//var defaultDatabase = defaultApp.database();
+
 
 function onSubmitRegister(){
 
-	const emailText = document.getElementById("emailR");
-	const passwordText = document.getElementById("passwordR");
-	const varifyPasswordText = document.getElementById("varifyPassword");
+	var emailText = document.getElementById("emailR");
+	var passwordText = document.getElementById("passwordR");
+	var varifyPasswordText = document.getElementById("varifyPassword");
 
-	const email = emailText.value;
-	const pass = passwordText.value;
-	const varifyPass = varifyPasswordText.value;
+	var email = emailText.value;
+	var pass = passwordText.value;
+	var varifyPass = varifyPasswordText.value;
 
 	console.log("stuff");
+	/*
+	if(pass === varifyPass && pass.length > 6){
 
-	if(pass.equals(varifyPass) && pass.length > 6){
-
-			window.alert("works");
+			console.log(email);
+			console.log(pass);
+			//window.alert("works");
 			//window.location.replace("file:///C:/Users/Mike/Documents/School/Hackathon/The-Locker-Room/profile.html");
-			const auth = firebase.auth();
-			auth.createUserWithEmailAndPassword(email, pass);
-	}
+			*/
+			firebase.auth().createUserWithEmailAndPassword(email, pass).catch(function(error) {
+			  // Handle Errors here.
+			  var errorCode = error.code;
+			  var errorMessage = error.message;
+			  console.log(errorCode);
+			  console.log(errorMessage)
+			  // ...
+			});
+
+	//}
+	return false;
 
 }
