@@ -1,5 +1,9 @@
 var registerButton = document.getElementById("registerButton");
 var logInButton = document.getElementById("logInButton");
+var defaultApp = firebase.initializeApp(defaultAppConfig);
+var defaultStorage = defaultApp.storage();
+var defaultDatabase = defaultApp.database();
+
 
 function onSubmitRegister(){
 
@@ -13,12 +17,14 @@ function onSubmitRegister(){
 
 	console.log("stuff");
 
-	if(pass.equals(varifyPass) && pass.length > 6){
+	if(pass === varifyPass && pass.length > 6){
 
-			window.alert("works");
+			//window.alert("works");
 			//window.location.replace("file:///C:/Users/Mike/Documents/School/Hackathon/The-Locker-Room/profile.html");
 			const auth = firebase.auth();
-			auth.createUserWithEmailAndPassword(email, pass);
+			const promise = auth.createUserWithEmailAndPassword(email, pass);
+			promise.catch(e => console,log(e.message));
+
 	}
 
 }

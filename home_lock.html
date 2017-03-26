@@ -3,7 +3,6 @@
 <head>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title>Locker Room</title>
-	<link rel="stylesheet" type="text/css" href="home_lock_style.css"/>
 <style type="text/css">
 
 .navi {
@@ -80,9 +79,8 @@ a:link {
 	text-align: center;
 }
 
-.signins {
-	color: red;
-	text-align: center;
+#logInRegisterButton{
+	display:none;
 }
 
 </style>
@@ -93,7 +91,9 @@ a:link {
 			<div class="home"><a href = "home_lock.html" class = "homes"><i class="fa fa-home" aria-hidden="true"></i></a></div>
 			<div class="feed"><a href = "search_profile.html" class = "feeds"><i class="fa fa-globe" aria-hidden="true"></i></a></div>
 			<div class="profile"><a href = "profile.html" class = "profiles"><i class="fa fa-user" aria-hidden="true"></i></a></div>
-			<div class="signin"><a href = "signin_lock.html" class = "signins">Login/Sign Up</a></div>
+				<button id="logInRegisterButton" onClick="onLogInRegister">Login/Sign Up</button>
+				<button id="logOutButton" onClick="onLogOut">Log out</button>
+			</div>
 		</nav>
 	</div>
 	Popular Feed
