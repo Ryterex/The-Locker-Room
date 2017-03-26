@@ -3,7 +3,6 @@
 <head>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title>Locker Room</title>
-
 	<style type="text/css">
 
 .img {
@@ -155,13 +154,19 @@ a:hover {
 				<div class="home"><a href = "home_lock.html" class = "homes"><i class="fa fa-home" aria-hidden="true"></i></a></div>
 				<div class="feed"><a href = "search_profile.html" class = "feeds"><i class="fa fa-globe" aria-hidden="true"></i></a></div>
 				<div class="profile"><a href = "profile.html" class = "profiles"><i class="fa fa-user" aria-hidden="true"></i></a></div>
-				<div class="signin"><a href = "signin_lock.html" class = "signins">Login/Sign Up</a></div>
+				<div id="login" display="block" class="signin"><a href = "signin_lock.html" class = "signins">Login/Sign Up</a></div>
 			</nav>
 		</div>
 		<div class = "outside">
 			<div class = "register">
 				<form>
 					<div class = "reg">Register! <br></div>
+					Name: <br>
+					<input type = "text" name = "nameR" id = "nameR">
+					<br>
+					<br>
+					<input type="radio" id="gender" value="male">Male<br>
+					<input type="radio" id="gender" value="female">Female<br><br>
 					Email: <br>
 					<input type = "text" name = "emailR" id = "emailR">
 					<br>
@@ -172,8 +177,7 @@ a:hover {
 					<input type = "password" name = "verifyPassword" id ="varifyPassword">
 					<br><br>
 
-					<button id="registerButton"
-							onClick="onSubmitRegister()">
+					<button type="button" id="registerButton"onclick="onSubmitRegister()">
 							Register
 					</button>
 
@@ -183,14 +187,13 @@ a:hover {
 				<form>
 					<div class = "log">Log In! <br></div>
 					Email: <br>
-					<input type = "text" name = "email">
+					<input type = "text" name = "email" id="email"> 
 					<br>
 					Password: <br>
-					<input type = "password" name = "password">
+					<input type = "password" name = "password" id="password">
 					<br><br>
 
-					<button id="logInButton"
-							onClick="onSubmitLogIn()">
+					<button type="button" id="logInButton" onclick="onSubmitLogIn()">
 							Log In
 					</button>
 
@@ -200,42 +203,54 @@ a:hover {
 	</div>	
 
 	<script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
-
-
-	<!--<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-app.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-auth.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/3.7.1/firebase-database.js"></script> <-->
-
 	<script>
-	  // Initialize Firebase
-	  var config = {
-	    apiKey: "AIzaSyAx_rQPhmne93y4ifq5Jl9DOgM-f-xL1wE",
-	    authDomain: "lockerroom-e2078.firebaseapp.com",
-	    databaseURL: "https://lockerroom-e2078.firebaseio.com",
-	    storageBucket: "lockerroom-e2078.appspot.com",
-	    messagingSenderId: "426768137801"
-	  };
-	  firebase.initializeApp(config);
+  	// Initialize Firebase
+  	var config = {
+    	apiKey: "AIzaSyAx_rQPhmne93y4ifq5Jl9DOgM-f-xL1wE",
+    	authDomain: "lockerroom-e2078.firebaseapp.com",
+    	databaseURL: "https://lockerroom-e2078.firebaseio.com",
+    	storageBucket: "lockerroom-e2078.appspot.com",
+    	messagingSenderId: "426768137801"
+  	};
+  	firebase.initializeApp(config);
 	</script>
-
-	<!-- <script src="ButtonListeners.js"></script>
-	<script src="CheckAuthState.js"></script> <-->
 
 	<script>
 		function onSubmitRegister() {
+			var name = document.getElementById("nameR").value;
 			var pass1 = document.getElementById("passwordR").value;
 			var pass2 = document.getElementById("varifyPassword").value;
 			var email = document.getElementById("emailR").value;
-			var firebaseRef = firebase.database().ref().child("users");
-			if (pass1 != pass2) {
-				alert("Passwords do not match. Please try again.");
+			var gender = document.getElementById("gender").value;
+			var baseRef = firebase.database().ref().child("users").child(name);
+			if (pass1 == pass2) {
+				alert("Account successfully created.");
+				baseRef.child("email").set(email);
+				baseRef.child("password").set(pass1);
+				baseRef.child("gender").set(gender);
+				login.style.display = "none";
 			}
 			else {
-				firebaseRef.push().set("5");
-				alert(5);
+				alert("Passwords do not match. Please try again.");
 			}
 		}
-	</script>
 
+		function onSubmitLogIn() {
+			var email_ = document.getElementById("email").value;
+			var password_ = document.getElementById("password").value;
+			var rootRef = firebase.database().ref().child("users");
+			var emailR = null;
+			var passwordR = null;
+			rootRef.on("child_added", snap => {
+				if (email_ == snap.child("email").val() && password_ == snap.child("password").val()) {
+					emailR = email_;
+					passwordR = password_;
+					alert("Log in successful");
+
+				}
+			});
+		}
+
+	</script>
 </body>
 </html>
