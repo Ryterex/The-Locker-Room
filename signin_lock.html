@@ -1,20 +1,118 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title>Locker Room</title>
 	<script src="ButtonListeners.js"></script>
+	<style type="text/css">
+
+.navi {
+	padding: 10px;
+	border-width: 15px;
+	border-radius: 10px;
+	border: solid red;
+	width: 1024px;
+	margin: auto;
+	background-color: #ABABAB; 
+	margin-top: 50px;
+	height: 50px;
+}
+
+.home {
+	display: inline-block;
+	font-family: Arial;
+	color; red;
+	padding-bottom: 5px;
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+.feed {
+	padding-right: 40px;
+	padding-left: 20px;
+	display: inline-block;
+	font-family: Arial;
+	font-color; red;
+}
+
+.profile {
+	padding-right: 20px;
+	padding-left: 30px;
+	display: inline-block;
+	font-family: Arial;
+	font-color; red;
+}
+
+.signin {
+	/*padding-right: 20px;
+	padding-left: 20px;*/
+	display: inline-block;
+	float: right;
+	font-family: Arial;
+	font-color; red;
+	padding: 16px;
+}
+/*a {
+	color: red;
+	font-size: 40px;
+}*/
+
+a:link {
+	color: red;
+	text-decoration: none;
+}
+
+.homes {
+	font-size: 40px;
+	color: red;
+	text-align: center;
+}
+
+.feeds {
+	font-size: 40px;
+	color: red;
+	text-align: center;
+}
+
+.profiles {
+	font-size: 40px;
+	color: red;
+	text-align: center;
+}
+
+.signins {
+	color: red;
+	text-align: center;
+}
+
+.outside {
+	
+}
+
+</style>
 </head>
 <body>
 	<div>
 		<div class = "navi">
 			<nav>
+<<<<<<< HEAD
+				<div class="home"><a href = "home_lock.html" class = "homes"><i class="fa fa-home" aria-hidden="true"></i></a></div>
+				<div class="feed"><a href = "search_profile.html" class = "feeds"><i class="fa fa-globe" aria-hidden="true"></i></a></div>
+				<div class="profile"><a href = "profile.html" class = "profiles"><i class="fa fa-user" aria-hidden="true"></i></a></div>
+				<div class="signin"><a href = "signin_lock.html" class = "signins">Login/Sign Up</a></div>
+=======
 				<a href = "home_lock.html">Home</a>
 				<a href = "feed_link">Feed</a> 
 				<a href = "profile.html">Profile</a> 
 				<a href = "signin_lock.html">Login/Sign Up</a>
+				<button id="LogInRegisterButton"
+							onClick="onSubmitRegister">
+							Register
+				</button>
+>>>>>>> 8ba2079a15d98fcfcc77e2af45b6d5ea1f36877a
 			</nav>
 		</div>
-		<div>
+		<div class = "outside">
 			<div class = "register">
 				<form>
 					Email: <br>
