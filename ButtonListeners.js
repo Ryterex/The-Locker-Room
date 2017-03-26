@@ -17,6 +17,8 @@ function onSubmitRegister(){
 
 			window.alert("works");
 			//window.location.replace("file:///C:/Users/Mike/Documents/School/Hackathon/The-Locker-Room/profile.html");
+			const auth = firebase.auth();
+			auth.createUserWithEmailAndPassword(email, pass);
 	}
 
 }
