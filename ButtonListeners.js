@@ -28,14 +28,14 @@ function onSubmitRegister(){
 	var varifyPass = varifyPasswordText.value;
 
 	console.log("stuff");
-	
+	/*
 	if(pass === varifyPass && pass.length > 6){
 
 		console.log(email);
 		console.log(pass);
 		//window.alert("works");
 		//window.location.replace("file:///C:/Users/Mike/Documents/School/Hackathon/The-Locker-Room/profile.html");
-		
+		*/
 		firebase.auth().createUserWithEmailAndPassword(email, pass).catch(function(error) {
 		  // Handle Errors here.
 		  var errorCode = error.code;
@@ -43,13 +43,14 @@ function onSubmitRegister(){
 		  console.log(errorCode);
 		  console.log(errorMessage);
 		  if(errorCode){
+
 		 	 window.alert(errorMessage);
 		  }
 		  
 		  // ...
 		});
 		window.location.href = "profile.html";
-	}
+	//}
 
 	if(pass != varifyPass){
 		window.alert("Passwords don't match!");
@@ -60,5 +61,3 @@ function onSubmitRegister(){
 
 }
 
-
-function on

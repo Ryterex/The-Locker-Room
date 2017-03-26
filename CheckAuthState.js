@@ -19,7 +19,7 @@ function CheckAuthState(){
 		}
 	});
 	*/
-
+	window.alert("its fucking running");
 	var user = firebase.auth().currentUser;
 		if(user){
 			window.alert("You are already logged in!");
@@ -34,4 +34,3 @@ function CheckAuthState(){
 		}
 
 }
-
