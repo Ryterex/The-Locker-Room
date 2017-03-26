@@ -90,12 +90,24 @@ a:link {
 	width: 1036px;
 	margin-top: 50px;
 	height: 512px;
+	background-color: #ABABAB;
 }
 
 .search {
 	margin-right: 20px;
 	float: right;
 	margin-top: 20px;
+	color:red;
+	font-size: 35px;
+}
+
+.ppl {
+	float:left;
+	margin-left: 20px;
+	margin-top: 20px;
+	color:red;
+	font-family: Impact;
+	font-size: 40px;
 }
 
 </style>
@@ -111,11 +123,13 @@ a:link {
 			</nav>
 		</div>
 		<div class = "outside">
+			<div class = "ppl">People Finder</div>
 			<div class = "search">
+				<i class="fa fa-search" aria-hidden="true"></i>
 				<input type="text" id="search" name="search" placeholder="Search..">
 				<button type="button" onclick="find()">Submit</button>
 			</div>
-			<div>
+			<div class = "info">
 				<p id="test"></p>
 			</div>
 		</div>

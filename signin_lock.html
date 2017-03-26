@@ -86,35 +86,68 @@ a:link {
 }
 
 .outside {
-	
+	margin: auto;
+	border: solid red;
+	width: 1036px;
+	margin-top: 50px;
+	height: 512px;
+	background-color: #ABABAB;
+}
+
+.register {
+	margin-left: 225px;
+	margin-top: 150px;
+	display: inline-block;
+	border: solid red;
+	padding: 10px;
+	font-family: Arial;
+	color:red;
+	background-color: #ABABAB;
+}
+
+.login {
+	margin-left: 200px;
+	margin-top: 150px;
+	display: inline-block;
+	border: solid red;
+	padding: 10px;
+	font-family: Arial;
+	color:red;
+	background-color: #ABABAB;
+}
+
+.reg {
+	font-family: Impact;
+	color: red;
+	font-size: 25px;
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+.log {
+	font-family: Impact;
+	color: red;
+	font-size: 25px;
+	text-align: center;
+	padding-bottom: 10px;
 }
 
 </style>
 </head>
 <body>
-	<div>
+	<div class = "back">
 		<div class = "navi">
 			<nav>
-<<<<<<< HEAD
 				<div class="home"><a href = "home_lock.html" class = "homes"><i class="fa fa-home" aria-hidden="true"></i></a></div>
 				<div class="feed"><a href = "search_profile.html" class = "feeds"><i class="fa fa-globe" aria-hidden="true"></i></a></div>
 				<div class="profile"><a href = "profile.html" class = "profiles"><i class="fa fa-user" aria-hidden="true"></i></a></div>
 				<div class="signin"><a href = "signin_lock.html" class = "signins">Login/Sign Up</a></div>
-=======
-				<a href = "home_lock.html">Home</a>
-				<a href = "feed_link">Feed</a> 
-				<a href = "profile.html">Profile</a> 
-				<a href = "signin_lock.html">Login/Sign Up</a>
-				<button id="LogInRegisterButton"
-							onClick="onSubmitRegister">
-							Register
-				</button>
->>>>>>> 8ba2079a15d98fcfcc77e2af45b6d5ea1f36877a
 			</nav>
 		</div>
 		<div class = "outside">
 			<div class = "register">
 				<form>
+					<div class = "reg">Register! <br></div>
 					Email: <br>
 					<input type = "text" name = "emailR">
 					<br>
@@ -134,6 +167,7 @@ a:link {
 			</div>
 			<div class = "login">
 				<form>
+					<div class = "log">Log In! <br></div>
 					Email: <br>
 					<input type = "text" name = "email">
 					<br>
