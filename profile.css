@@ -3,14 +3,25 @@
 }
 
 .nice{
-
+	border-color: black;
+	background-color: #ebdedb;
+	text-align: center;
+	width: 50%;
+	position: center;
 }
 
 .button{
+	display: block;
+	margin: auto;
 
 }
 
+.butt{
+	position: relative;
+}
+
 .user_info{
-	border: 2px solid red;
+	border: 5px solid red;
 	border-radius: 10px;
+	margin: 5px;
 }
