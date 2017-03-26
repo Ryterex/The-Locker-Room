@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Locker Room</title>
+	<script src="ButtonListeners.js"></script>
 </head>
 <body>
 	<div>
@@ -14,21 +15,23 @@
 			</nav>
 		</div>
 		<div>
-			<div class = "signup">
+			<div class = "register">
 				<form>
 					Email: <br>
-					<input type = "text" name = "email">
-					<br>
-					Verify Email: <br>
-					<input type = "text" name = "verify_email">
+					<input type = "text" name = "emailR">
 					<br>
 					Password: <br>
-					<input type = "password" name = "password">
+					<input type = "password" name = "passwordR">
 					<br>
 					Verify Password: <br>
-					<input type = "password" name = "verify_password">
+					<input type = "password" name = "verifyPassword">
 					<br><br>
-					<input type = "submit" name = "Submit">
+
+					<button id="registerButton"
+							onClick="onSubmitRegister">
+							Register
+					</button>
+
 				</form>
 			</div>
 			<div class = "login">
@@ -39,10 +42,28 @@
 					Password: <br>
 					<input type = "password" name = "password">
 					<br><br>
-					<input type = "submit" name = "Submit">
+
+					<button id="logInButton"
+							onClick="onSubmitLogIn">
+							Log In
+					</button>
+
 				</form>
 			</div>	
 		</div>
 	</div>	
+
+	<script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyAx_rQPhmne93y4ifq5Jl9DOgM-f-xL1wE",
+	    authDomain: "lockerroom-e2078.firebaseapp.com",
+	    databaseURL: "https://lockerroom-e2078.firebaseio.com",
+	    storageBucket: "lockerroom-e2078.appspot.com",
+	    messagingSenderId: "426768137801"
+	  };
+	  firebase.initializeApp(config);
+	</script>
 </body>
 </html>

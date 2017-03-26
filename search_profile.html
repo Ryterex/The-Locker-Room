@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Locker Room</title>
+</head>
+<body>
+	<div>
+		<div class = "navi">
+			<nav>
+				<a href = "home_lock.html">Home</a>
+				<a href = "feed_link">Feed</a> 
+				<a href = "profile.html">Profile</a> 
+				<a href = "signin_lock.html">Login/Sign Up</a>
+			</nav>
+		</div>
+		<div>
+			<input type="text" id="search" name="search" placeholder="Search..">
+			<button type="button" onclick="find()">Submit</button>
+		</div>
+		<div>
+			<p id="test"></p>
+		</div>
+	</div>	
+
+	<script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+	<script>
+  	// Initialize Firebase
+  	var config = {
+    	apiKey: "AIzaSyAx_rQPhmne93y4ifq5Jl9DOgM-f-xL1wE",
+    	authDomain: "lockerroom-e2078.firebaseapp.com",
+    	databaseURL: "https://lockerroom-e2078.firebaseio.com",
+    	storageBucket: "lockerroom-e2078.appspot.com",
+    	messagingSenderId: "426768137801"
+  	};
+  	firebase.initializeApp(config);
+	</script>
+
+	<script>
+		function find() {
+			document.getElementById("test").innerHTML = "No results.";
+			var input = document.getElementById("search").value;
+			var rootRef = firebase.database().ref().child("posts");
+			var list = [];
+			var name = null;
+			rootRef.on("child_added", snap => {
+				if (input == snap.child("Name").val()) {
+					name = input;
+					document.getElementById("test").innerHTML = name;
+				}
+			});
+		}
+	</script>
+
+
+</body>
+</html>
