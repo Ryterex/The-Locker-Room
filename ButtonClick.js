@@ -1,8 +1,10 @@
 var submitBtn = document.getElementById("submitBtn");
 
-function onSubmit{
+function onSubmit(){
 	window.alert("works");
-	//var firebaseRef = firebase.database().ref("Users");
-	//firebaseRef.child("Mike").child("Email").setValue("meng1@stevens.edu");
-	//firebaseRef.child("Mike").child("Gender").setValue("Attack Helicopter");
+	var firebaseRef = firebase.database().ref("users");
+	firebaseRef.child("Mike").set({
+		email: "meng1@stevens.edu",
+		gender: "Attack Helicopter"
+	});
 }
