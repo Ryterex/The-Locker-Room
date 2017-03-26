@@ -11,8 +11,14 @@ function onSubmitRegister(){
 	const pass = passwordText.value;
 	const varifyPass = varifyPasswordText.value;
 
+	console.log("stuff");
+
 	if(pass.equals(varifyPass) && pass.length > 6){
-			window.location.replace("file:///C:/Users/Mike/Documents/School/Hackathon/The-Locker-Room/profile.html");
+
+			window.alert("works");
+			//window.location.replace("file:///C:/Users/Mike/Documents/School/Hackathon/The-Locker-Room/profile.html");
+			const auth = firebase.auth();
+			auth.createUserWithEmailAndPassword(email, pass);
 	}
 
 }
