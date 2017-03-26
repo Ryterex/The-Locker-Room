@@ -9,7 +9,7 @@
 	padding: 10px;
 	border-width: 15px;
 	border-radius: 10px;
-	border: solid red;
+	border: solid red 5px;
 	width: 1024px;
 	margin: auto;
 	background-color: #ABABAB; 
@@ -91,6 +91,8 @@ a:link {
 	margin-top: 50px;
 	height: 512px;
 	background-color: #ABABAB;
+	border-radius: 10px;
+	border: solid red 5px;
 }
 
 .search {
@@ -131,6 +133,14 @@ a:link {
 			</div>
 			<div class = "info">
 				<p id="test"></p>
+				<textarea id="addcomment">Add a submission</textarea>
+				<button type="button" onclick="addComment()">Submit</button>
+				<button type="button" onclick="newComment()">Add New Person</button>
+				<ul id="posts_">
+
+
+
+				</ul>
 			</div>
 		</div>
 	</div>	
@@ -149,18 +159,55 @@ a:link {
 	</script>
 
 	<script>
+		var name = null;
 		function find() {
+			name = null;
+			document.getElementById("posts_").innerHTML = "";
 			document.getElementById("test").innerHTML = "No results.";
 			var input = document.getElementById("search").value;
 			var rootRef = firebase.database().ref().child("posts");
 			var list = [];
-			var name = null;
+			var posts = "";
 			rootRef.on("child_added", snap => {
-				if (input == snap.child("Name").val()) {
+				if (input == snap.child("name").val()) {
 					name = input;
 					document.getElementById("test").innerHTML = name;
-				}
+
+					const dbRefOject = firebase.database().ref().child("posts").child(name);
+					const ulList = document.getElementById("posts_");
+					const dbRefList = dbRefOject.child("userposts");
+
+					dbRefList.on("child_added", snap => {
+						const li = document.createElement("li");
+						li.innerText = snap.val();
+						ulList.appendChild(li);
+					});
+				}	
 			});
+
+
+		}
+
+		function addComment() {
+			if (name!="null") {
+				alert("Submission successful");
+				var message = document.getElementById("addcomment").value;
+				var firebaseRef = firebase.database().ref().child("posts").child(name).child("userposts");
+				firebaseRef.push().set(message);
+			}
+			else {
+				alert("Unsuccessful submission");
+			}
+		}
+
+		function newComment() {
+			alert("New person made. Submission successful.");
+			var name = document.getElementById("search").value;
+			var message = document.getElementById("addcomment").value;
+			var firebaseRef = firebase.database().ref().child("posts").child(name).child("userposts");
+			var firebaseName = firebase.database().ref().child("posts").child(name).child("name");
+			firebaseRef.push().set(message);
+			firebaseName.set(name);
 		}
 	</script>
 
