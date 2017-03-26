@@ -7,5 +7,10 @@
 }
 
 .button{
-	
+
+}
+
+.user_info{
+	border: 2px solid red;
+	border-radius: 10px;
 }
